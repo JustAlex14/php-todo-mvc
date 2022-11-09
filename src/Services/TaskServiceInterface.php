@@ -13,7 +13,7 @@ interface TaskServiceInterface {
    *
    * @return TaskEntity|null
    */
-  public function get ( int $id ) : ?TaskEntity;
+  public function get ( int $id ) : ? TaskEntity;
   
   
   /**

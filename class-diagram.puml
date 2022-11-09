@@ -2,38 +2,30 @@
 
 'Entity
 class TaskEntity {
-  - int|null id
-  - string|null title
-  - string|null description
-  - bool|null completed
-  - string|null createdAt
-  - string|null updatedAt
-  - string|null completedAt
-  + getId() : int|null
+  - Int|null id
+  - String|null title
+  - String|null description
+  - Boolean|null completed
+  - DateTime|null createdAt
+  - DateTime|null updatedAt
+  - DateTime|null completedAt
+  + getId() : Int|null
   + setId( Int id ) : TaskEntity
-  + getTitle() : string|null
-  + setTitle( string title ) : TaskEntity
-  + getDescription() : string|null
-  + setDescription( string description ) : TaskEntity
-  + isCompleted() : bool
-  + setCompleted( bool completed ) : TaskEntity
-  + getCreatedAt() : string
-  + setCreatedAt( string createdAt ) : TaskEntity
-  + getUpdatedAt() : string
-  + setUpdatedAt( string updatedAt ) : TaskEntity
-  + getCompletedAt() : string
-  + setCompletedAt( string completedAt ) : TaskEntity
+  + getTitle() : String|null
+  + setTitle( String title ) : TaskEntity
+  + getDescription() : String|null
+  + setDescription( String description ) : TaskEntity
+  + isCompleted() : Boolean
+  + setCompleted( Boolean completed ) : TaskEntity
 }
 
 'Services
-note top of TaskServiceInterface : list() retourne un tableau [page: int, total: int, perPage:int, tasks: TaskEntity[]]
-
 interface TaskServiceInterface<<Singleton>> {
-  + get( int id ) : TaskEntity | null
-  + list ( array args ) : array
+  + get( Int id ) : TaskEntity | null
+  + list ( Array args ) : TaskEntity[]
   + create( TaskEntity task ) : TaskEntity
   + update( TaskEntity task ) : TaskEntity
-  + delete( int id ) : void
+  + delete( Int id ) : void
   + {static} getInstance() : TaskServiceInterface
 }
 

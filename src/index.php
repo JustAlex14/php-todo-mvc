@@ -28,9 +28,7 @@ switch ($uri[1]) :
   // Create/Edit/Delete view
   case "task":
     // Extraction de l'id de la tâche depuis l'URI /task/{id}
-    $task_id = isset($uri[2])
-      ? intval($uri[2])
-      : null;
+    $task_id = isset($uri[2]) ? intval($uri[2]) : null;
     (new TaskSingleController( MemoryTaskService::getInstance(), $task_id ))->render();
     break;
   
