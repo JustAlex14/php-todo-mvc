@@ -22,13 +22,14 @@
     <label for="order-by" class="text-xs uppercase text-slate-400 font-bold">Trier par</label>
     <div class="relative">
       <select id="order-by" name="order-by" class="block appearance-none w-full bg-slate-100 text-slate-700 border border-slate-100 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-slate-400">
+      <?php $orderedBy = $_GET["order-by"] ?? "title" ?>  
         <option disabled>
           Sélectionner une option
         </option>
         <option value="title">
           Titre
         </option>
-        <option value="createdAt">
+        <option value="createdAt" default>
           Date D'ajout
         </option>
         <option value="completedAt">

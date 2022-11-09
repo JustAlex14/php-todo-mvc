@@ -103,12 +103,24 @@ class MemoryTaskService implements TaskServiceInterface {
             : 1;
       endswitch;
     } );
+
+    $selecPage = $args['page'] ?? 1;
+    $perPage = $args['perPage'] ?? 10;
+    
+    $pageResult = [];
+
+    for ($id = ($selecPage-1)*$perPage; $id < count($results); $id++) {
+      if (count($pageResult)>=$perPage) 
+        break;
+      
+      $pageResult[] = $results[$id];
+    }
   
     return array(
-      'page' => $args['page'] ?? 1,
-      'perPage' => $args['perPage'] ?? 10,
+      'page' => $selecPage,
+      'perPage' => $perPage,
       'total' => count($results),
-      'tasks' => $results
+      'tasks' => $pageResult
     );
   }
   

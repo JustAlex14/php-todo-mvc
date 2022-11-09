@@ -53,15 +53,14 @@ echo get_header( [ 'title' => 'Accueil' ] );
           
           <!-- Pagination -->
           <div class="flex-1 flex flex-row justify-end space-x-4 my-8">
-            <a class="block bg-slate-50 hover:bg-slate-200 rounded p-4 text-sm cursor-pointer transition-colors duration-300">
-              1
-            </a>
-            <a class="block bg-slate-50 hover:bg-slate-200 rounded p-4 text-sm cursor-pointer transition-colors duration-300">
-              2
-            </a>
-            <a class="block bg-slate-50 hover:bg-slate-200 rounded p-4 text-sm cursor-pointer transition-colors duration-300">
-              3
-            </a>
+            <?php for ($pageNumber = 1 ; $pageNumber <= ceil($totalTask/10); $pageNumber++) {
+              echo "<a class='block bg-slate-50 hover:bg-slate-200 rounded p-4 text-sm cursor-pointer transition-colors duration-300'" 
+              . "href=http://localhost/?search=" . ($_GET["search"] ?? null) 
+              . "&order-by=" . ($_GET["order-by"] ?? null) 
+              . "&only-show-completed=" . ($_GET["only-show-completed"] ?? null) 
+              . "&selecPage=" . $pageNumber . ">" . $pageNumber . "</a>";
+            }
+            ?>
           </div>
         </div>
         <!-- /Pagination -->
